@@ -1,46 +1,61 @@
 # Task Flow
 
-Aplicativo de gerenciamento de tarefas desenvolvido com Ionic Framework, Angular e Firebase Firestore.
+Task Flow is a task management application developed using Ionic Framework, Angular and Firebase Firestore.
 
-## Funcionalidades
+## Features
 
-- Criar tarefas
-- Editar tarefas
-- Concluir tarefas
-- Reabrir tarefas
-- Excluir tarefas
-- Persistência de dados em nuvem
-- Atualização em tempo real
+* Create tasks
+* Edit tasks
+* Complete tasks
+* Reopen completed tasks
+* Delete tasks
+* Real-time synchronization
+* Persistent cloud storage
 
-## Tecnologias
+## Technologies
 
-- Ionic Framework
-- Angular
-- TypeScript
-- Firebase Firestore
-- HTML
-- SCSS
+* Ionic Framework
+* Angular
+* TypeScript
+* Firebase Firestore
+* HTML
+* SCSS
 
-## Estrutura
+## Project Structure
 
 ```text
 src/
-├── models
-├── pages
-├── services
-└── environments
+├── app/
+│   ├── models/
+│   ├── pages/
+│   ├── services/
+│   └── app.routes.ts
+├── environments/
+└── assets/
 ```
 
-## Como executar
+## Installation
+
+Install dependencies:
 
 ```bash
 npm install
+```
+
+Install Firebase:
+
+```bash
 npm install firebase @angular/fire
+```
+
+Run the project:
+
+```bash
 ionic serve
 ```
 
-## Integrantes
+## Authors
 
-- Pedro Henrique Vieira Coelho
-- Jaime Koji Santana Pereira
-- Vinicius Xavier Furtunato
+* Pedro Henrique Vieira Coelho
+* Jaime Koji Santana Pereira
+* Vinicius Xavier Furtunato
