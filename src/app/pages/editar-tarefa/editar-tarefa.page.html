@@ -1,0 +1,49 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Editar Tarefa</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="ion-padding">
+  <div class="floating-container">
+    <ion-header collapse="condense">
+      <ion-toolbar>
+        <ion-title size="large">criar-tarefa</ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <ion-list>
+      <ion-item>
+        <ion-label position="floating">Título</ion-label>
+        <ion-input type="text" [(ngModel)]="tarefa.titulo">{{tarefa.titulo}}></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Descrição</ion-label>
+        <ion-input type="text" [(ngModel)]="tarefa.descricao">{{tarefa.descricao}}></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="stacked">Data de Vencimento</ion-label>
+        <ion-datetime presentation="date"[(ngModel)]="tarefa.data">{{tarefa.data}}></ion-datetime>
+      </ion-item>
+      <ion-item>
+        <ion-label>Término</ion-label>
+        <ion-datetime presentation="time" [(ngModel)]="tarefa.horaTermino">{{tarefa.horaTermino}}</ion-datetime>
+      </ion-item>
+      <div class="button-container mt-3">
+        <ion-button class="custom-button mt-3" (click)="editarTarefa()">
+          Confirmar Edição
+        </ion-button>
+      </div>
+    </ion-list>
+  </div>
+</ion-content>
+<ion-toast [isOpen]="alteradoToast" message="Tarefa editada com sucesso!" duration="1500" icon="checkmark-circle"
+  position="bottom" (didDismiss)="voltar()">
+</ion-toast>
+<ion-toast [isOpen]="erroToast" message="Houve um problema ao editar sua tarefa!" duration="2500" icon="checkmark-circle"
+  position="bottom" (didDismiss)="voltar()">
+</ion-toast>

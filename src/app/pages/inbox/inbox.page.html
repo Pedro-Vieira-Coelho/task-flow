@@ -1,0 +1,59 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+
+    <ion-title>Tela Inicial</ion-title>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+  @if (tarefas.length > 0) {
+
+  <ion-list>
+
+    @for (tarefa of tarefas; track tarefa) {
+
+    <ion-item>
+
+      <ion-checkbox slot="start" (ionChange)="concluirTarefa(tarefa)">
+      </ion-checkbox>
+
+      <ion-label>
+
+        <h2>
+          <strong>{{ tarefa.titulo }}</strong>
+        </h2>
+
+        <p>{{ tarefa.descricao }}</p>
+
+        <p>
+          {{ formatarData(tarefa.data) }}
+          |
+          {{ formatarHora(tarefa.horaTermino) }}
+        </p>
+
+      </ion-label>
+
+      <ion-button fill="clear" color="default" [routerLink]="['/editar-tarefa', tarefa.id]" routerLinkActive="active">
+        <ion-icon name="create"></ion-icon>
+      </ion-button>
+
+      <ion-button fill="clear" color="danger" slot="end" (click)="confirmarExclusao(tarefa)">
+
+        <ion-icon name="trash-outline"></ion-icon>
+
+      </ion-button>
+
+    </ion-item>
+
+    }
+
+  </ion-list>
+
+  }
+
+</ion-content>

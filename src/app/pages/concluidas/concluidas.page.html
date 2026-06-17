@@ -1,0 +1,62 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Tarefas Concluídas</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="ion-padding">
+
+  @if (tarefasConcluidas.length > 0) {
+
+  <ion-list>
+
+    @for (tarefa of tarefasConcluidas; track tarefa) {
+
+    <ion-item>
+
+      <ion-label>
+
+        <h2>{{ tarefa.titulo }}</h2>
+        <p>{{ tarefa.descricao }}</p>
+        <p>
+          📅 {{ formatarData(tarefa.data) }}
+          |
+          🕒 {{ formatarHora(tarefa.horaTermino) }}
+        </p>
+      </ion-label>
+
+      <ion-button slot="end" (click)="reabrirTarefa(tarefa)">
+
+        Reabrir
+
+      </ion-button>
+    </ion-item>
+
+    }
+
+  </ion-list>
+  } @else{
+  <div class="floating-container">
+
+    <ion-card>
+
+      <ion-card-header>
+        <ion-card-title>
+          Nenhuma tarefa cadastrada
+        </ion-card-title>
+      </ion-card-header>
+
+      <ion-card-content>
+        <div class="button-container">
+          <ion-button class="custom-button" (click)="irParaEditarTarefa()">
+            Edite uma tarefa
+          </ion-button>
+        </div>
+      </ion-card-content>
+    </ion-card>
+  </div>
+  }
+</ion-content>
